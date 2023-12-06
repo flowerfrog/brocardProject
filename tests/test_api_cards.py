@@ -111,6 +111,69 @@ def test_get_card_with_last_fours():
     assert result.json()['data'][0]['last_four'] == last_fours
 
 
+def test_get_only_archived_cards():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "archived": 'only'
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['archived'] is True
+    assert result.json()['total'] == 669
+
+
+def test_get_include_archived_cards():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "archived": 'include'
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['archived'] is True or result.json()['data'][0]['archived'] is False
+    assert result.json()['total'] == 693
+
+
+def test_get_exclude_archived_cards():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "archived": 'exclude'
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['archived'] is False
+    assert result.json()['total'] == 24
+
+
 def test_list_of_cards_pagination():
     page = 2
     API_KEY = load_env()
