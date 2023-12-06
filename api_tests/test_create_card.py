@@ -89,3 +89,47 @@ def test_create_limit_card_with_total_limit_less_minimum():
     jsonschema.validate(result.json(), schema)
     assert result.json()['message'] == "The total_limit must be greater than or equal 50."
     assert result.json()['errors']['total_limit'][0] == "The total_limit must be greater than or equal 50."
+
+
+def test_create_card_without_title():
+    card_bin = '485953'
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/post_unsuccessful_create_card_without_title.json')
+
+    result = requests.post(url,
+                           headers={
+                               "Authorization": f'Bearer {API_KEY}',
+                               "Content-Type": "application/json",
+                               "Accept": "application/json"
+                           },
+                           params={
+                               "bin": card_bin
+                           })
+
+    assert result.status_code == 422
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['message'] == "The title field is required."
+    assert result.json()['errors']['title'][0] == "The title field is required."
+
+
+def test_create_card_without_bin():
+    card_title = 'test_creating_card'
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/post_unsuccessful_create_card_without_bin.json')
+
+    result = requests.post(url,
+                           headers={
+                               "Authorization": f'Bearer {API_KEY}',
+                               "Content-Type": "application/json",
+                               "Accept": "application/json"
+                           },
+                           params={
+                               "title": card_title
+                           })
+
+    assert result.status_code == 422
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['message'] == "The bin field is required."
+    assert result.json()['errors']['bin'][0] == "The bin field is required."
