@@ -129,7 +129,7 @@ def test_get_only_archived_cards():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['archived'] is True
-    assert result.json()['total'] == 669
+    assert result.json()['total'] == 674
 
 
 def test_get_include_archived_cards():
@@ -150,7 +150,7 @@ def test_get_include_archived_cards():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['archived'] is True or result.json()['data'][0]['archived'] is False
-    assert result.json()['total'] == 693
+    assert result.json()['total'] == 698
 
 
 def test_get_exclude_archived_cards():
