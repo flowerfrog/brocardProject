@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "errors": {
+      "type": "object",
+      "properties": {
+        "total_limit": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "total_limit"
+      ]
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "message",
+    "errors",
+    "request_id"
+  ]
+}
