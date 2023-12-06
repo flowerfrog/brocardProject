@@ -4,6 +4,7 @@ from tests.utils import load_schema, load_env
 
 
 def test_get_balance_card():
+    card_bin = '540542'
     API_KEY = load_env()
     url = "https://private.mybrocard.com/api/v2/cards"
     schema = load_schema('cards/get_balance_cards.json')
@@ -14,16 +15,17 @@ def test_get_balance_card():
                               "Content-Type": "application/json",
                               "Accept": "application/json"
                           },
-                          params={"bins[]": "540542"})
+                          params={"bins[]": card_bin})
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['data'][0]['bin'] == '540542'
+    assert result.json()['data'][0]['bin'] == card_bin
     assert result.json()['data'][0]['currency'] == 'USD'
     assert result.json()['data'][0]['balance_type'] == 'card_balance'
 
 
 def test_get_limit_card():
+    card_bin = '485953'
     API_KEY = load_env()
     url = "https://private.mybrocard.com/api/v2/cards"
     schema = load_schema('cards/get_limit_cards.json')
@@ -34,11 +36,11 @@ def test_get_limit_card():
                               "Content-Type": "application/json",
                               "Accept": "application/json"
                           },
-                          params={"bins[]": "485953"})
+                          params={"bins[]": card_bin})
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['data'][0]['bin'] == '485953'
+    assert result.json()['data'][0]['bin'] == card_bin
     assert result.json()['data'][0]['currency'] == 'USD'
     assert result.json()['data'][0]['balance_type'] == 'account_balance'
 
@@ -66,6 +68,7 @@ def test_get_card_with_specified_date():
 
 
 def test_get_card_with_id():
+    card_id = 1321211
     API_KEY = load_env()
     url = "https://private.mybrocard.com/api/v2/cards"
     schema = load_schema('cards/get_list_cards.json')
@@ -77,19 +80,41 @@ def test_get_card_with_id():
                               "Accept": "application/json"
                           },
                           params={
-                              "ids[]": '1321211'
+                              "ids[]": card_id
                           })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['total'] == 1
-    assert result.json()['data'][0]['id'] == 1321211
+    assert result.json()['data'][0]['id'] == card_id
+
+
+def test_get_card_with_last_fours():
+    last_fours = '0386'
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "last_fours[]": last_fours
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['total'] == 1
+    assert result.json()['data'][0]['last_four'] == last_fours
 
 
 def test_list_of_cards_pagination():
+    page = 2
     API_KEY = load_env()
     url = "https://private.mybrocard.com/api/v2/cards"
-    page = 2
     schema = load_schema('cards/get_list_cards.json')
 
     result = requests.get(url,
