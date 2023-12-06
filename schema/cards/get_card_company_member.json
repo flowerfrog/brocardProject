@@ -1,0 +1,265 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string"
+    },
+    "last_four": {
+      "type": "string"
+    },
+    "bin": {
+      "type": "string"
+    },
+    "balance_type": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "available": {
+      "type": "string"
+    },
+    "spend": {
+      "type": "string"
+    },
+    "archived": {
+      "type": "boolean"
+    },
+    "state": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        },
+        "deferred_state": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "integer"
+            },
+            "label": {
+              "type": "string"
+            },
+            "perform_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value",
+            "label",
+            "perform_at"
+          ]
+        }
+      },
+      "required": [
+        "value",
+        "label"
+      ]
+    },
+    "micro_payments_enabled": {
+      "type": "boolean"
+    },
+    "micro_payments_limit": {
+      "type": "string"
+    },
+    "micro_payments_limit_sum": {
+      "type": "string"
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "team": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "name",
+        "team"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "uuid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "personal": {
+              "type": "boolean"
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "email",
+                "name"
+              ]
+            }
+          },
+          "required": [
+            "uuid",
+            "name",
+            "personal",
+            "user"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "uuid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "personal": {
+              "type": "boolean"
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "email",
+                "name"
+              ]
+            }
+          },
+          "required": [
+            "uuid",
+            "name",
+            "personal",
+            "user"
+          ]
+        }
+      ]
+    },
+    "limits": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "amount"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "amount"
+          ]
+        }
+      ]
+    },
+    "date": {
+      "type": "string"
+    },
+    "billing_address": {
+      "type": "string"
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "last_four",
+    "bin",
+    "balance_type",
+    "currency",
+    "available",
+    "spend",
+    "archived",
+    "state",
+    "micro_payments_enabled",
+    "user",
+    "tags",
+    "limits",
+    "date",
+    "billing_address",
+    "request_id"
+  ]
+}
