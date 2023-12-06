@@ -237,6 +237,72 @@ def test_get_exclude_micropayments_cards():
     assert result.json()['total'] == 23
 
 
+def test_get_active_cards():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "states[]": 2
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['state']['value'] == 2
+    assert result.json()['data'][0]['state']['label'] == "Active"
+    assert result.json()['total'] == 13
+
+
+def test_get_blocked_cards():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "states[]": 3
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['state']['value'] == 3
+    assert result.json()['data'][0]['state']['label'] == "Blocked"
+    assert result.json()['total'] == 10
+
+
+def test_get_paused_cards():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "states[]": 4
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['state']['value'] == 4
+    assert result.json()['data'][0]['state']['label'] == "Paused"
+    assert result.json()['total'] == 1
+
+
 def test_list_of_cards_pagination():
     page = 2
     API_KEY = load_env()
