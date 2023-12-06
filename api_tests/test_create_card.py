@@ -12,7 +12,7 @@ def test_create_limit_card_successful():
     total_limit = '50.00'
     API_KEY = load_env()
     url = "https://private.mybrocard.com/api/v2/cards"
-    schema = load_schema('cards/post_successful_create_card.json')
+    schema = load_schema('cards/post_successful_create_limit_card.json')
 
     result = requests.post(url,
                            headers={
@@ -37,6 +37,40 @@ def test_create_limit_card_successful():
     assert result.json()['limits'][0]['amount'] == transaction_limit
     assert result.json()['limits'][1]['type'] == "total_limit"
     assert result.json()['limits'][1]['amount'] == total_limit
+
+
+@pytest.mark.skip
+def test_create_balance_card_successful():
+    card_bin = '436797'
+    card_title = 'test_creating_card'
+    card_balance = '25.35'
+    transaction_limit = '50.00'
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/post_successful_create_balance_card.json')
+
+    result = requests.post(url,
+                           headers={
+                               "Authorization": f'Bearer {API_KEY}',
+                               "Content-Type": "application/json",
+                               "Accept": "application/json"
+                           },
+                           params={
+                               "bin": card_bin,
+                               "title": card_title,
+                               "transaction_limit": transaction_limit,
+                               "balance": card_balance
+                           })
+
+    assert result.status_code == 201
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['title'] == card_title
+    assert result.json()['bin'] == card_bin
+    assert result.json()['balance_type'] == "card_balance"
+    assert result.json()['available'] == card_balance
+    assert result.json()['state']['label'] == "Active"
+    assert result.json()['limits'][0]['type'] == "transaction_limit"
+    assert result.json()['limits'][0]['amount'] == transaction_limit
 
 
 def test_create_limit_card_with_transaction_limit_less_minimum():
