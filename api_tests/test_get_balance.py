@@ -1,6 +1,6 @@
 import jsonschema
 import requests
-from tests.utils import load_schema, load_env
+from api_tests.utils import load_schema, load_env
 
 
 def test_get_list_balance():

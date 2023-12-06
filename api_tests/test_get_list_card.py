@@ -1,6 +1,6 @@
 import jsonschema
 import requests
-from tests.utils import load_schema, load_env
+from api_tests.utils import load_schema, load_env
 
 
 def test_get_balance_card():
@@ -343,6 +343,28 @@ def test_get_list_cards_of_user():
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['user']['id'] == 4
     assert result.json()['total'] == 2
+
+
+def test_get_list_cards_tag():
+    card_tag = 'b3eab0e2-4bcc-11ee-a6be-04d4c438f481'
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "tags[]": card_tag
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['tags'][0]['uuid'] == card_tag
+    assert result.json()['total'] == 4
 
 
 def test_list_of_cards_pagination():
