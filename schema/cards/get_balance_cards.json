@@ -1,0 +1,278 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "last_four": {
+              "type": "string"
+            },
+            "bin": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "available": {
+              "type": "string"
+            },
+            "spend": {
+              "type": "string"
+            },
+            "archived": {
+              "type": "boolean"
+            },
+            "state": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "micro_payments_enabled": {
+              "type": "boolean"
+            },
+            "topup": {
+              "type": "object",
+              "properties": {
+                "auto": {
+                  "type": "boolean"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "threshold": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "auto",
+                "to",
+                "threshold"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name",
+                "email",
+                "team"
+              ]
+            },
+            "limits": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "amount"
+                  ]
+                }
+              ]
+            },
+            "tags": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "uuid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "personal": {
+                      "type": "boolean"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "uuid",
+                        "name",
+                        "email"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "uuid",
+                    "name",
+                    "personal",
+                    "user"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "uuid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "personal": {
+                      "type": "boolean"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "uuid",
+                        "name",
+                        "email"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "uuid",
+                    "name",
+                    "personal",
+                    "user"
+                  ]
+                }
+              ]
+            },
+            "date": {
+              "type": "string"
+            },
+            "billing_address": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "last_four",
+            "bin",
+            "currency",
+            "balance_type",
+            "available",
+            "spend",
+            "archived",
+            "state",
+            "micro_payments_enabled",
+            "topup",
+            "user",
+            "limits",
+            "tags",
+            "date",
+            "billing_address"
+          ]
+        }
+      ]
+    },
+    "total": {
+      "type": "integer"
+    },
+    "per_page": {
+      "type": "integer"
+    },
+    "current_page": {
+      "type": "integer"
+    },
+    "last_page": {
+      "type": "integer"
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "total",
+    "per_page",
+    "current_page",
+    "last_page",
+    "request_id"
+  ]
+}

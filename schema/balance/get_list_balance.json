@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "string"
+            },
+            "reserved": {
+              "type": "string"
+            },
+            "available": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "total",
+            "reserved",
+            "available",
+            "currency"
+          ]
+        }
+      ]
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "request_id"
+  ]
+}
