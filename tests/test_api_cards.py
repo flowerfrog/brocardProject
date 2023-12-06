@@ -174,6 +174,69 @@ def test_get_exclude_archived_cards():
     assert result.json()['total'] == 24
 
 
+def test_get_include_micropayments_cards():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "micro": 'include'
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['micro_payments_enabled'] is True or result.json()['data'][0]['micro_payments_enabled'] is False
+    assert result.json()['total'] == 24
+
+
+def test_get_only_micropayments_cards():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "micro": 'only'
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['micro_payments_enabled'] is True
+    assert result.json()['total'] == 1
+
+
+def test_get_exclude_micropayments_cards():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "micro": 'exclude'
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['micro_payments_enabled'] is False
+    assert result.json()['total'] == 23
+
+
 def test_list_of_cards_pagination():
     page = 2
     API_KEY = load_env()
