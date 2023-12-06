@@ -303,6 +303,48 @@ def test_get_paused_cards():
     assert result.json()['total'] == 1
 
 
+def test_get_list_cards_of_team():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "teams[]": 1
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['user']['team']['id'] == 1
+    assert result.json()['total'] == 24
+
+
+def test_get_list_cards_of_user():
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/get_list_cards.json')
+
+    result = requests.get(url,
+                          headers={
+                              "Authorization": f'Bearer {API_KEY}',
+                              "Content-Type": "application/json",
+                              "Accept": "application/json"
+                          },
+                          params={
+                              "users[]": 4
+                          })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['data'][0]['user']['id'] == 4
+    assert result.json()['total'] == 2
+
+
 def test_list_of_cards_pagination():
     page = 2
     API_KEY = load_env()
