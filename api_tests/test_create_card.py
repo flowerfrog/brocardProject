@@ -125,6 +125,35 @@ def test_create_limit_card_with_total_limit_less_minimum():
     assert result.json()['errors']['total_limit'][0] == "The total_limit must be greater than or equal 50."
 
 
+def test_create_limit_card_with_autotopup():
+    card_bin = '485953'
+    card_title = 'test_creating_card'
+    transaction_limit = '50.00'
+    total_limit = '50.00'
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/post_unsuccessful_create_limit_card_with_autotopup.json')
+
+    result = requests.post(url,
+                           headers={
+                               "Authorization": f'Bearer {API_KEY}',
+                               "Content-Type": "application/json",
+                               "Accept": "application/json"
+                           },
+                           params={
+                               "bin": card_bin,
+                               "title": card_title,
+                               "transaction_limit": transaction_limit,
+                               "total_limit": total_limit,
+                               "topup_auto": "true"
+                           })
+
+    assert result.status_code == 422
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['message'] == "The topup_auto prohibited if card has deferred state. Also prohibited for BIN without card_balance support."
+    assert result.json()['errors']['topup_auto'][0] == "The topup_auto prohibited if card has deferred state. Also prohibited for BIN without card_balance support."
+
+
 def test_create_card_without_title():
     card_bin = '485953'
     API_KEY = load_env()
