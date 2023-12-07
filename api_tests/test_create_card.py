@@ -101,6 +101,60 @@ def test_create_balance_card_with_balance_less_minimum():
     assert result.json()['errors']['balance'][0] == "The balance must be greater than or equal 25."
 
 
+def test_create_balance_card_with_balance_more_user_balance():
+    card_bin = '436797'
+    card_title = 'test_creating_card'
+    card_balance = '2000.00'
+    transaction_limit = '50.00'
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/post_unsuccessful_create_balance_card.json')
+
+    result = requests.post(url,
+                           headers={
+                               "Authorization": f'Bearer {API_KEY}',
+                               "Content-Type": "application/json",
+                               "Accept": "application/json"
+                           },
+                           params={
+                               "bin": card_bin,
+                               "title": card_title,
+                               "transaction_limit": transaction_limit,
+                               "balance": card_balance
+                           })
+
+    assert result.status_code == 422
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['message'] == "Not enough user balance."
+
+
+def test_create_balance_card_with_transaction_limit_more_available_user_limit():
+    card_bin = '436797'
+    card_title = 'test_creating_card'
+    card_balance = '25.00'
+    transaction_limit = '10000.00'
+    API_KEY = load_env()
+    url = "https://private.mybrocard.com/api/v2/cards"
+    schema = load_schema('cards/post_unsuccessful_create_balance_card.json')
+
+    result = requests.post(url,
+                           headers={
+                               "Authorization": f'Bearer {API_KEY}',
+                               "Content-Type": "application/json",
+                               "Accept": "application/json"
+                           },
+                           params={
+                               "bin": card_bin,
+                               "title": card_title,
+                               "transaction_limit": transaction_limit,
+                               "balance": card_balance
+                           })
+
+    assert result.status_code == 422
+    jsonschema.validate(result.json(), schema)
+    assert result.json()['message'] == "Limit per transaction must not exceed the value in the profile settings"
+
+
 def test_create_limit_card_with_transaction_limit_less_minimum():
     card_bin = '485953'
     card_title = 'test_creating_card'
@@ -178,8 +232,10 @@ def test_create_limit_card_with_autotopup():
 
     assert result.status_code == 422
     jsonschema.validate(result.json(), schema)
-    assert result.json()['message'] == "The topup_auto prohibited if card has deferred state. Also prohibited for BIN without card_balance support."
-    assert result.json()['errors']['topup_auto'][0] == "The topup_auto prohibited if card has deferred state. Also prohibited for BIN without card_balance support."
+    assert result.json()[
+               'message'] == "The topup_auto prohibited if card has deferred state. Also prohibited for BIN without card_balance support."
+    assert result.json()['errors']['topup_auto'][
+               0] == "The topup_auto prohibited if card has deferred state. Also prohibited for BIN without card_balance support."
 
 
 def test_create_card_without_title():
