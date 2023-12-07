@@ -2,6 +2,7 @@ import jsonschema
 import pytest
 import requests
 from api_tests.utils import load_schema, load_env
+from api_tests.utils import brocard_api_post
 
 
 @pytest.mark.skip
@@ -11,21 +12,21 @@ def test_create_limit_card_successful():
     transaction_limit = '50.00'
     total_limit = '50.00'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_successful_create_limit_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "bin": card_bin,
-                               "title": card_title,
-                               "transaction_limit": transaction_limit,
-                               "total_limit": total_limit
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "bin": card_bin,
+                                  "title": card_title,
+                                  "transaction_limit": transaction_limit,
+                                  "total_limit": total_limit
+                              })
 
     assert result.status_code == 201
     jsonschema.validate(result.json(), schema)
@@ -46,21 +47,21 @@ def test_create_balance_card_successful():
     card_balance = '25.35'
     transaction_limit = '50.00'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_successful_create_balance_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "bin": card_bin,
-                               "title": card_title,
-                               "transaction_limit": transaction_limit,
-                               "balance": card_balance
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "bin": card_bin,
+                                  "title": card_title,
+                                  "transaction_limit": transaction_limit,
+                                  "balance": card_balance
+                              })
 
     assert result.status_code == 201
     jsonschema.validate(result.json(), schema)
@@ -79,21 +80,21 @@ def test_create_balance_card_with_balance_less_minimum():
     card_balance = '24'
     transaction_limit = '50.00'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_unsuccessful_create_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "bin": card_bin,
-                               "title": card_title,
-                               "transaction_limit": transaction_limit,
-                               "balance": card_balance
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "bin": card_bin,
+                                  "title": card_title,
+                                  "transaction_limit": transaction_limit,
+                                  "balance": card_balance
+                              })
 
     assert result.status_code == 422
     jsonschema.validate(result.json(), schema)
@@ -107,21 +108,21 @@ def test_create_balance_card_with_balance_more_user_balance():
     card_balance = '2000.00'
     transaction_limit = '50.00'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_unsuccessful_create_balance_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "bin": card_bin,
-                               "title": card_title,
-                               "transaction_limit": transaction_limit,
-                               "balance": card_balance
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "bin": card_bin,
+                                  "title": card_title,
+                                  "transaction_limit": transaction_limit,
+                                  "balance": card_balance
+                              })
 
     assert result.status_code == 422
     jsonschema.validate(result.json(), schema)
@@ -134,21 +135,21 @@ def test_create_balance_card_with_transaction_limit_more_available_user_limit():
     card_balance = '25.00'
     transaction_limit = '10000.00'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_unsuccessful_create_balance_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "bin": card_bin,
-                               "title": card_title,
-                               "transaction_limit": transaction_limit,
-                               "balance": card_balance
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "bin": card_bin,
+                                  "title": card_title,
+                                  "transaction_limit": transaction_limit,
+                                  "balance": card_balance
+                              })
 
     assert result.status_code == 422
     jsonschema.validate(result.json(), schema)
@@ -160,20 +161,20 @@ def test_create_limit_card_with_transaction_limit_less_minimum():
     card_title = 'test_creating_card'
     transaction_limit = '49.00'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_unsuccessful_create_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "bin": card_bin,
-                               "title": card_title,
-                               "transaction_limit": transaction_limit
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "bin": card_bin,
+                                  "title": card_title,
+                                  "transaction_limit": transaction_limit
+                              })
 
     assert result.status_code == 422
     jsonschema.validate(result.json(), schema)
@@ -186,20 +187,20 @@ def test_create_limit_card_with_total_limit_less_minimum():
     card_title = 'test_creating_card'
     total_limit = '49.00'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_unsuccessful_create_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "bin": card_bin,
-                               "title": card_title,
-                               "total_limit": total_limit
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "bin": card_bin,
+                                  "title": card_title,
+                                  "total_limit": total_limit
+                              })
 
     assert result.status_code == 422
     jsonschema.validate(result.json(), schema)
@@ -213,22 +214,22 @@ def test_create_limit_card_with_autotopup():
     transaction_limit = '50.00'
     total_limit = '50.00'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_unsuccessful_create_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "bin": card_bin,
-                               "title": card_title,
-                               "transaction_limit": transaction_limit,
-                               "total_limit": total_limit,
-                               "topup_auto": "true"
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "bin": card_bin,
+                                  "title": card_title,
+                                  "transaction_limit": transaction_limit,
+                                  "total_limit": total_limit,
+                                  "topup_auto": "true"
+                              })
 
     assert result.status_code == 422
     jsonschema.validate(result.json(), schema)
@@ -241,18 +242,18 @@ def test_create_limit_card_with_autotopup():
 def test_create_card_without_title():
     card_bin = '485953'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_unsuccessful_create_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "bin": card_bin
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "bin": card_bin
+                              })
 
     assert result.status_code == 422
     jsonschema.validate(result.json(), schema)
@@ -263,18 +264,18 @@ def test_create_card_without_title():
 def test_create_card_without_bin():
     card_title = 'test_creating_card'
     API_KEY = load_env()
-    url = "https://private.mybrocard.com/api/v2/cards"
+    url = "/cards"
     schema = load_schema('cards/post_unsuccessful_create_card.json')
 
-    result = requests.post(url,
-                           headers={
-                               "Authorization": f'Bearer {API_KEY}',
-                               "Content-Type": "application/json",
-                               "Accept": "application/json"
-                           },
-                           params={
-                               "title": card_title
-                           })
+    result = brocard_api_post(url,
+                              headers={
+                                  "Authorization": f'Bearer {API_KEY}',
+                                  "Content-Type": "application/json",
+                                  "Accept": "application/json"
+                              },
+                              params={
+                                  "title": card_title
+                              })
 
     assert result.status_code == 422
     jsonschema.validate(result.json(), schema)
