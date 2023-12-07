@@ -38,7 +38,7 @@ def brocard_api_post(url, **kwargs):
         result = requests.post(url="https://private.mybrocard.com/api/v2" + url, **kwargs)
         allure.attach(body=result.request.method + " " + result.request.url, name="Request URL", attachment_type=AttachmentType.TEXT, extension="txt")
         allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response",
-                      attachment_type=AttachmentType.TEXT, extension="txt")
+                      attachment_type=AttachmentType.JSON, extension="json")
         logging.info(result.request.url)
         logging.info(result.status_code)
         logging.info(result.text)
@@ -50,7 +50,7 @@ def brocard_api_put(url, **kwargs):
         result = requests.put(url="https://private.mybrocard.com/api/v2" + url, **kwargs)
         allure.attach(body=result.request.method + " " + result.request.url, name="Request URL", attachment_type=AttachmentType.TEXT, extension="txt")
         allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response",
-                      attachment_type=AttachmentType.TEXT, extension="txt")
+                      attachment_type=AttachmentType.JSON, extension="json")
         logging.info(result.request.url)
         logging.info(result.status_code)
         logging.info(result.text)
