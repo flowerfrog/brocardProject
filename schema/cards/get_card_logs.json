@@ -1,0 +1,2490 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "boolean"
+                    },
+                    "after": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "integer"
+                    },
+                    "after": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "integer"
+                    },
+                    "after": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "integer"
+                    },
+                    "after": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    },
+                    "after": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": {}
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "changes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "changed": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "null"
+                    },
+                    "after": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "changed",
+                    "before",
+                    "after"
+                  ]
+                }
+              ]
+            },
+            "available": {
+              "type": "string"
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name"
+              ]
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "event",
+            "changes",
+            "available",
+            "card",
+            "user",
+            "date"
+          ]
+        }
+      ]
+    },
+    "total": {
+      "type": "integer"
+    },
+    "per_page": {
+      "type": "integer"
+    },
+    "current_page": {
+      "type": "integer"
+    },
+    "last_page": {
+      "type": "integer"
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "total",
+    "per_page",
+    "current_page",
+    "last_page",
+    "request_id"
+  ]
+}
