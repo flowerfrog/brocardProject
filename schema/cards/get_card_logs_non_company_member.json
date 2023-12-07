@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {}
+    },
+    "total": {
+      "type": "integer"
+    },
+    "per_page": {
+      "type": "integer"
+    },
+    "current_page": {
+      "type": "integer"
+    },
+    "last_page": {
+      "type": "integer"
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "total",
+    "per_page",
+    "current_page",
+    "last_page",
+    "request_id"
+  ]
+}
