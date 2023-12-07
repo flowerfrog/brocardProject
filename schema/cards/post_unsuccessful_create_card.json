@@ -8,7 +8,7 @@
     "errors": {
       "type": "object",
       "properties": {
-        "transaction_limit": {
+        "total_limit": {
           "type": "array",
           "items": [
             {
@@ -16,10 +16,7 @@
             }
           ]
         }
-      },
-      "required": [
-        "transaction_limit"
-      ]
+      }
     },
     "request_id": {
       "type": "string"
