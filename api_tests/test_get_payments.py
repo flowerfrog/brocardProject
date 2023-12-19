@@ -1,7 +1,5 @@
 import allure
 import jsonschema
-import pytest
-
 from api_tests.utils import load_schema, load_env
 from api_tests.utils import brocard_api_get
 
