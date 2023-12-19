@@ -1,10 +1,14 @@
+import allure
 import jsonschema
 import pytest
-import requests
 from api_tests.utils import load_schema, load_env
 from api_tests.utils import brocard_api_post
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating limit card')
 @pytest.mark.skip
 def test_create_limit_card_successful():
     card_bin = '485953'
@@ -40,6 +44,10 @@ def test_create_limit_card_successful():
     assert result.json()['limits'][1]['amount'] == total_limit
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating balance card')
 @pytest.mark.skip
 def test_create_balance_card_successful():
     card_bin = '436797'
@@ -74,6 +82,10 @@ def test_create_balance_card_successful():
     assert result.json()['limits'][0]['amount'] == transaction_limit
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating balance card')
 def test_create_balance_card_with_balance_less_minimum():
     card_bin = '436797'
     card_title = 'test_creating_card'
@@ -102,6 +114,10 @@ def test_create_balance_card_with_balance_less_minimum():
     assert result.json()['errors']['balance'][0] == "The balance must be greater than or equal 25."
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating balance card')
 def test_create_balance_card_with_balance_more_user_balance():
     card_bin = '436797'
     card_title = 'test_creating_card'
@@ -129,6 +145,10 @@ def test_create_balance_card_with_balance_more_user_balance():
     assert result.json()['message'] == "Not enough user balance."
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating balance card')
 def test_create_balance_card_with_transaction_limit_more_available_user_limit():
     card_bin = '436797'
     card_title = 'test_creating_card'
@@ -156,6 +176,10 @@ def test_create_balance_card_with_transaction_limit_more_available_user_limit():
     assert result.json()['message'] == "Limit per transaction must not exceed the value in the profile settings"
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating limit card')
 def test_create_limit_card_with_transaction_limit_less_minimum():
     card_bin = '485953'
     card_title = 'test_creating_card'
@@ -182,6 +206,10 @@ def test_create_limit_card_with_transaction_limit_less_minimum():
     assert result.json()['errors']['transaction_limit'][0] == "The transaction_limit must be greater than or equal 50."
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating limit card')
 def test_create_limit_card_with_total_limit_less_minimum():
     card_bin = '485953'
     card_title = 'test_creating_card'
@@ -208,6 +236,10 @@ def test_create_limit_card_with_total_limit_less_minimum():
     assert result.json()['errors']['total_limit'][0] == "The total_limit must be greater than or equal 50."
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating limit card')
 def test_create_limit_card_with_autotopup():
     card_bin = '485953'
     card_title = 'test_creating_card'
@@ -239,6 +271,10 @@ def test_create_limit_card_with_autotopup():
                0] == "The topup_auto prohibited if card has deferred state. Also prohibited for BIN without card_balance support."
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating card')
 def test_create_card_without_title():
     card_bin = '485953'
     API_KEY = load_env()
@@ -261,6 +297,10 @@ def test_create_card_without_title():
     assert result.json()['errors']['title'][0] == "The title field is required."
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Creating card')
 def test_create_card_without_bin():
     card_title = 'test_creating_card'
     API_KEY = load_env()
