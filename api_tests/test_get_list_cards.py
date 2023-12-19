@@ -1,9 +1,13 @@
+import allure
 import jsonschema
-import requests
 from api_tests.utils import load_schema, load_env
 from api_tests.utils import brocard_api_get
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of balance cards')
 def test_get_balance_card():
     card_bin = '540542'
     API_KEY = load_env()
@@ -25,6 +29,10 @@ def test_get_balance_card():
     assert result.json()['data'][0]['balance_type'] == 'card_balance'
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of limit cards')
 def test_get_limit_card():
     card_bin = '485953'
     API_KEY = load_env()
@@ -46,6 +54,10 @@ def test_get_limit_card():
     assert result.json()['data'][0]['balance_type'] == 'account_balance'
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of cards in a given date range')
 def test_get_card_with_specified_date():
     API_KEY = load_env()
     url = "/cards"
@@ -68,6 +80,10 @@ def test_get_card_with_specified_date():
     assert result.json()['total'] == 7
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a card with a given id')
 def test_get_card_with_id():
     card_id = 1321211
     API_KEY = load_env()
@@ -90,6 +106,10 @@ def test_get_card_with_id():
     assert result.json()['data'][0]['id'] == card_id
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a card with a given last fours')
 def test_get_card_with_last_fours():
     last_fours = '0386'
     API_KEY = load_env()
@@ -112,6 +132,10 @@ def test_get_card_with_last_fours():
     assert result.json()['data'][0]['last_four'] == last_fours
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of archived cards')
 def test_get_only_archived_cards():
     API_KEY = load_env()
     url = "/cards"
@@ -133,6 +157,10 @@ def test_get_only_archived_cards():
     # assert result.json()['total'] == 674
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of all cards: archived cards and non archived cards')
 def test_get_include_archived_cards():
     API_KEY = load_env()
     url = "/cards"
@@ -154,6 +182,10 @@ def test_get_include_archived_cards():
     # assert result.json()['total'] == 698
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of non archived cards')
 def test_get_exclude_archived_cards():
     API_KEY = load_env()
     url = "/cards"
@@ -175,6 +207,10 @@ def test_get_exclude_archived_cards():
     # assert result.json()['total'] == 24
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of all cards: with micropayments and without micropayments')
 def test_get_include_micropayments_cards():
     API_KEY = load_env()
     url = "/cards"
@@ -197,6 +233,10 @@ def test_get_include_micropayments_cards():
     # assert result.json()['total'] == 24
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of cards with micropayments')
 def test_get_only_micropayments_cards():
     API_KEY = load_env()
     url = "/cards"
@@ -218,6 +258,10 @@ def test_get_only_micropayments_cards():
     # assert result.json()['total'] == 1
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of cards without micropayments')
 def test_get_exclude_micropayments_cards():
     API_KEY = load_env()
     url = "/cards"
@@ -239,6 +283,10 @@ def test_get_exclude_micropayments_cards():
     # assert result.json()['total'] == 23
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of active cards')
 def test_get_active_cards():
     API_KEY = load_env()
     url = "/cards"
@@ -261,6 +309,10 @@ def test_get_active_cards():
     # assert result.json()['total'] == 13
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of blocked cards')
 def test_get_blocked_cards():
     API_KEY = load_env()
     url = "/cards"
@@ -283,6 +335,10 @@ def test_get_blocked_cards():
     # assert result.json()['total'] == 10
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of paused cards')
 def test_get_paused_cards():
     API_KEY = load_env()
     url = "/cards"
@@ -305,6 +361,10 @@ def test_get_paused_cards():
     # assert result.json()['total'] == 1
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of team cards')
 def test_get_list_cards_of_team():
     API_KEY = load_env()
     url = "/cards"
@@ -326,6 +386,10 @@ def test_get_list_cards_of_team():
     # assert result.json()['total'] == 24
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of user cards')
 def test_get_list_cards_of_user():
     API_KEY = load_env()
     url = "/cards"
@@ -347,6 +411,10 @@ def test_get_list_cards_of_user():
     assert result.json()['total'] == 3
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of cards with a given tag')
 def test_get_list_cards_tag():
     card_tag = 'b3eab0e2-4bcc-11ee-a6be-04d4c438f481'
     API_KEY = load_env()
@@ -369,6 +437,10 @@ def test_get_list_cards_tag():
     assert result.json()['total'] == 4
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting the next page of the card list')
 def test_list_of_cards_pagination():
     page = 2
     API_KEY = load_env()
@@ -391,6 +463,10 @@ def test_list_of_cards_pagination():
     assert result.json()['current_page'] == page
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a set number of items on a page')
 def test_list_of_cards_per_page():
     page = 2
     per_page = 6
