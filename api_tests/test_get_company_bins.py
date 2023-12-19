@@ -1,8 +1,13 @@
+import allure
 import jsonschema
 from api_tests.utils import load_schema, load_env
 from api_tests.utils import brocard_api_get
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Get company bins')
 def test_get_company_bins():
     API_KEY = load_env()
     url = "/company/bins"
