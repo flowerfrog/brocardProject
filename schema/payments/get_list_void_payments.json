@@ -1,0 +1,190 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "amount": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "merchant": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "mcc": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "descriptor": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "code"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "mcc",
+                "name",
+                "descriptor",
+                "country"
+              ]
+            },
+            "state": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "is_micro": {
+              "type": "boolean"
+            },
+            "decline": {
+              "type": "null"
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name",
+                "email",
+                "team"
+              ]
+            },
+            "card": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "last_four": {
+                  "type": "string"
+                },
+                "bin": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "last_four",
+                "bin"
+              ]
+            },
+            "fees": {
+              "type": "array",
+              "items": {}
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "amount",
+            "currency",
+            "merchant",
+            "state",
+            "is_micro",
+            "decline",
+            "user",
+            "card",
+            "fees",
+            "date"
+          ]
+        }
+      ]
+    },
+    "total": {
+      "type": "integer"
+    },
+    "per_page": {
+      "type": "integer"
+    },
+    "current_page": {
+      "type": "integer"
+    },
+    "last_page": {
+      "type": "integer"
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "total",
+    "per_page",
+    "current_page",
+    "last_page",
+    "request_id"
+  ]
+}
