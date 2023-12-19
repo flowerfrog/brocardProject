@@ -1,8 +1,13 @@
+import allure
 import jsonschema
 from api_tests.utils import load_schema, load_env
 from api_tests.utils import brocard_api_get
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting card data')
 def test_show_company_member_card():
     card_id = 1314861
     API_KEY = load_env()
@@ -21,6 +26,10 @@ def test_show_company_member_card():
     assert result.json()['id'] == card_id
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting card data')
 def test_show_non_company_member_card():
     card_id = 666
     API_KEY = load_env()

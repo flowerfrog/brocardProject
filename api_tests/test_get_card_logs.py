@@ -1,9 +1,13 @@
+import allure
 import jsonschema
-import requests
 from api_tests.utils import load_schema, load_env
 from api_tests.utils import brocard_api_get
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting logs of card changes')
 def test_get_card_logs_company_member():
     card_id = 343604
     API_KEY = load_env()
@@ -22,6 +26,10 @@ def test_get_card_logs_company_member():
     assert result.json()['data'][0]['card']['id'] == card_id
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting logs of card changes')
 def test_get_card_logs_non_company_member():
     card_id = 1324141
     API_KEY = load_env()
@@ -40,6 +48,10 @@ def test_get_card_logs_non_company_member():
     assert result.json()['data'] == []
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a set number of items on a page')
 def test_list_of_cards_per_page():
     card_id = 343604
     page = 2
