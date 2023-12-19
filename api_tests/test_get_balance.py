@@ -1,10 +1,13 @@
+import allure
 import jsonschema
-import requests
-
 from api_tests.utils import load_schema, load_env
 from api_tests.utils import brocard_api_get
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list balance of user')
 def test_get_list_balance():
     API_KEY = load_env()
     url = "/balance"

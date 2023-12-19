@@ -1,9 +1,14 @@
+import allure
 import jsonschema
 import requests
 from api_tests.utils import load_schema, load_env
 from api_tests.utils import brocard_api_put
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Editing a card title')
 def test_edit_card_title():
     card_id = 1314861
     card_title = 'test_change_name_card'
@@ -26,6 +31,10 @@ def test_edit_card_title():
     assert result.json()['title'] == card_title
 
 
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Editing a card owner')
 def test_edit_card_owner():
     card_id = 1314861
     user_id = 4
