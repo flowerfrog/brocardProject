@@ -1,0 +1,528 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bin": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "balance_type": {
+              "type": "string"
+            },
+            "payment_restrictions": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bin",
+            "description",
+            "balance_type",
+            "payment_restrictions"
+          ]
+        }
+      ]
+    },
+    "total": {
+      "type": "integer"
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "total",
+    "request_id"
+  ]
+}
