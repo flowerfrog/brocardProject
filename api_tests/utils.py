@@ -24,7 +24,8 @@ def load_env():
 def brocard_api_get(url, **kwargs):
     with allure.step("API Request"):
         result = requests.get(url="https://private.mybrocard.com/api/v2" + url, **kwargs)
-        allure.attach(body=result.request.method + " " + result.request.url, name="Request URL", attachment_type=AttachmentType.TEXT, extension="txt")
+        allure.attach(body=result.request.method + " " + result.request.url, name="Request",
+                      attachment_type=AttachmentType.TEXT, extension="txt")
         allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response",
                       attachment_type=AttachmentType.JSON, extension="json")
         logging.info(result.request.url)
@@ -36,7 +37,8 @@ def brocard_api_get(url, **kwargs):
 def brocard_api_post(url, **kwargs):
     with allure.step("API Request"):
         result = requests.post(url="https://private.mybrocard.com/api/v2" + url, **kwargs)
-        allure.attach(body=result.request.method + " " + result.request.url, name="Request URL", attachment_type=AttachmentType.TEXT, extension="txt")
+        allure.attach(body=result.request.method + " " + result.request.url, name="Request",
+                      attachment_type=AttachmentType.TEXT, extension="txt")
         allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response",
                       attachment_type=AttachmentType.JSON, extension="json")
         logging.info(result.request.url)
@@ -48,7 +50,8 @@ def brocard_api_post(url, **kwargs):
 def brocard_api_put(url, **kwargs):
     with allure.step("API Request"):
         result = requests.put(url="https://private.mybrocard.com/api/v2" + url, **kwargs)
-        allure.attach(body=result.request.method + " " + result.request.url, name="Request URL", attachment_type=AttachmentType.TEXT, extension="txt")
+        allure.attach(body=result.request.method + " " + result.request.url, name="Request",
+                      attachment_type=AttachmentType.TEXT, extension="txt")
         allure.attach(body=json.dumps(result.json(), indent=4, ensure_ascii=True), name="Response",
                       attachment_type=AttachmentType.JSON, extension="json")
         logging.info(result.request.url)
