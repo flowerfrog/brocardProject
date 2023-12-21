@@ -12,7 +12,7 @@ def test_get_refund_of_company_member_with_given_id():
     API_KEY = load_env()
     refund_id = 80078
     url = f"/refunds/{refund_id}"
-    schema = load_schema('refunds/get_list_refunds.json')
+    schema = load_schema('refunds/get_show_refund.json')
 
     result = brocard_api_get(url,
                              headers={
@@ -23,8 +23,7 @@ def test_get_refund_of_company_member_with_given_id():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['data'][0]['id'] == 80078
-    assert len(result.json()['data']) == 1
+    assert result.json()['id'] == 80078
 
 
 @allure.tag("api")
