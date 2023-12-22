@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "amount": {
+              "type": "string"
+            },
+            "income": {
+              "type": "string"
+            },
+            "commission": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "state": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "uuid",
+                "name",
+                "email",
+                "team"
+              ]
+            },
+            "method": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "amount",
+            "income",
+            "commission",
+            "currency",
+            "state",
+            "user",
+            "method",
+            "date"
+          ]
+        }
+      ]
+    },
+    "per_page": {
+      "type": "integer"
+    },
+    "prev_cursor": {
+      "type": "null"
+    },
+    "next_cursor": {
+      "type": "null"
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "per_page",
+    "prev_cursor",
+    "next_cursor",
+    "request_id"
+  ]
+}
