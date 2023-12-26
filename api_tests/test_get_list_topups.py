@@ -254,3 +254,53 @@ def test_get_list_topups_with_marketcall_methods():
     jsonschema.validate(result.json(), schema)
     assert len(result.json()['data']) == 5
     assert result.json()['data'][0]['method'] == "marketcall"
+
+
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of topups with given methods')
+def test_get_list_topups_with_capitalist_methods():
+    API_KEY = load_env()
+    url = "/top-ups"
+    schema = load_schema('topups/get_list_topups.json')
+
+    result = brocard_api_get(url,
+                             headers={
+                                 "Authorization": f'Bearer {API_KEY}',
+                                 "Content-Type": "application/json",
+                                 "Accept": "application/json"
+                             },
+                             params={
+                                 "methods[]": "capitalist"
+                             })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert len(result.json()['data']) == 8
+    assert result.json()['data'][0]['method'] == "capitalist"
+
+
+@allure.tag("api")
+@allure.label("owner", "flowerfrog")
+@allure.feature('API')
+@allure.story('Getting a list of topups with given methods')
+def test_get_list_topups_with_usdt_trc_methods():
+    API_KEY = load_env()
+    url = "/top-ups"
+    schema = load_schema('topups/get_list_topups.json')
+
+    result = brocard_api_get(url,
+                             headers={
+                                 "Authorization": f'Bearer {API_KEY}',
+                                 "Content-Type": "application/json",
+                                 "Accept": "application/json"
+                             },
+                             params={
+                                 "methods[]": "usdt_trc"
+                             })
+
+    assert result.status_code == 200
+    jsonschema.validate(result.json(), schema)
+    assert len(result.json()['data']) == 3
+    assert result.json()['data'][0]['method'] == "usdt_trc"
