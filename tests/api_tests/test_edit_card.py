@@ -1,54 +1,56 @@
 import allure
 import jsonschema
-from api_tests.utils import load_schema, load_env
-from api_tests.utils import brocard_api_get
+from tests.api_tests.utils import load_schema, load_env
+from tests.api_tests.utils import brocard_api_put
 
 
 @allure.tag("api")
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
-@allure.story('Getting a list of tags')
-def test_get_list_tags_of_company_member():
+@allure.story('Editing a card title')
+def test_edit_card_title():
+    card_id = 1314861
+    card_title = 'test_change_name_card'
     API_KEY = load_env()
-    url = "/tags"
-    schema = load_schema('tags/get_list_tags.json')
+    url = f"/cards/{card_id}"
+    schema = load_schema('cards/put_edit_card.json')
 
-    result = brocard_api_get(url,
+    result = brocard_api_put(url,
                              headers={
                                  "Authorization": f'Bearer {API_KEY}',
                                  "Content-Type": "application/json",
                                  "Accept": "application/json"
                              },
                              params={
-                                 "users[]": 4
+                                 "title": card_title
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == result.json()['total']
-    assert result.json()['total'] == 4
-    assert result.json()['data'][0]['user']['id'] == 4
+    assert result.json()['title'] == card_title
 
 
 @allure.tag("api")
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
-@allure.story('Getting a list of tags')
-def test_get_list_tags_of_non_company_member():
+@allure.story('Editing a card owner')
+def test_edit_card_owner():
+    card_id = 1314861
+    user_id = 4
     API_KEY = load_env()
-    url = "/tags"
-    schema = load_schema('tags/get_list_tags.json')
+    url = f"/cards/{card_id}"
+    schema = load_schema('cards/put_edit_card.json')
 
-    result = brocard_api_get(url,
+    result = brocard_api_put(url,
                              headers={
                                  "Authorization": f'Bearer {API_KEY}',
                                  "Content-Type": "application/json",
                                  "Accept": "application/json"
                              },
                              params={
-                                 "users[]": 5
+                                 "user_id": user_id
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 0
+    assert result.json()['user']['id'] == user_id
