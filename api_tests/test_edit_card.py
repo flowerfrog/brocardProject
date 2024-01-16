@@ -1,6 +1,5 @@
 import allure
 import jsonschema
-import requests
 from api_tests.utils import load_schema, load_env
 from api_tests.utils import brocard_api_put
 

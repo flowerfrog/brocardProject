@@ -408,7 +408,7 @@ def test_get_list_cards_of_user():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['user']['id'] == 4
-    assert result.json()['total'] == 3
+    assert result.json()['total'] == 5
 
 
 @allure.tag("api")

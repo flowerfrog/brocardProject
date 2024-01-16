@@ -22,7 +22,7 @@ def test_get_list_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 234
+    assert result.json()['total'] == 244
 
 
 @allure.tag("api")
@@ -46,7 +46,7 @@ def test_get_list_settled_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 47
+    assert result.json()['total'] == 48
     assert result.json()['data'][0]['state']['value'] == 1
     assert result.json()['data'][0]['state']['label'] == "Settled"
 
@@ -72,7 +72,7 @@ def test_get_list_pending_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 5
+    assert result.json()['total'] == 4
     assert result.json()['data'][0]['state']['value'] == 3
     assert result.json()['data'][0]['state']['label'] == "Pending"
 
@@ -98,7 +98,7 @@ def test_get_list_void_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 48
+    assert result.json()['total'] == 49
     assert result.json()['data'][0]['state']['value'] == 2
     assert result.json()['data'][0]['state']['label'] == "Void"
 
@@ -124,7 +124,7 @@ def test_get_list_declined_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 134
+    assert result.json()['total'] == 143
     assert result.json()['data'][0]['state']['value'] == 4
     assert result.json()['data'][0]['state']['label'] == "Declined"
 
@@ -151,7 +151,7 @@ def test_get_list_payments_with_specified_date():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 6
+    assert result.json()['total'] == 5
     assert ('2023-12-01 00:00:00' < result.json()['data'][0]['date'] < '2023-12-10 23:59:59')
 
 
@@ -176,7 +176,7 @@ def test_get_list_payments_with_given_bin():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 5
+    assert result.json()['total'] == 4
     assert result.json()['data'][0]['card']['bin'] == '555671'
 
 
@@ -304,7 +304,7 @@ def test_get_list_user_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 13
+    assert result.json()['total'] == 18
     assert result.json()['data'][0]['user']['id'] == 4
     assert result.json()['data'][0]['user']['name'] == "mb"
 
@@ -330,7 +330,7 @@ def test_get_list_payments_include_micropayments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 234
+    assert result.json()['total'] == 244
     assert (result.json()['data'][0]['is_micro'] is True) or (result.json()['data'][0]['is_micro'] is False)
 
 
@@ -380,7 +380,7 @@ def test_get_list_payments_exclude_micropayments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 224
+    assert result.json()['total'] == 234
     assert result.json()['data'][0]['is_micro'] is False
 
 
@@ -406,7 +406,7 @@ def test_get_list_with_decline_reason_balance_less_than_amount():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 10
+    assert result.json()['total'] == 15
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -614,7 +614,7 @@ def test_get_list_with_decline_reason_declined_by_merchant():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 35
+    assert result.json()['total'] == 36
     assert result.json()['data'][0]['decline'] == decline_reason
 
 

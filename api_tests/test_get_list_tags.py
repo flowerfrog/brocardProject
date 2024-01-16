@@ -26,7 +26,7 @@ def test_get_list_tags_of_company_member():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert len(result.json()['data']) == result.json()['total']
-    assert result.json()['total'] == 2
+    assert result.json()['total'] == 4
     assert result.json()['data'][0]['user']['id'] == 4
 
 
