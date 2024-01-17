@@ -1,7 +1,8 @@
 import allure
 import jsonschema
-from tests.api_tests.utils import load_schema, load_env
+from tests.api_tests.utils import load_env
 from tests.api_tests.utils import brocard_api_put
+from brocard_project.helpers.load_schema import load_schema
 
 
 @allure.tag("api")
