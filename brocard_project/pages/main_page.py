@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 from selene import browser, be, have
 
 
