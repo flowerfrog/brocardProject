@@ -1,3 +1,5 @@
+import os
+
 import pytest
 from dotenv import load_dotenv
 from selene import browser
@@ -36,7 +38,9 @@ def setup_browser(request):
         }
     }
     options.capabilities.update(selenoid_capabilities)
-    driver = webdriver.Remote(command_executor="http://77.91.122.177:4444/wd/hub",
+    load_dotenv()
+    remote_browser_url = os.getenv("REMOTE_BROWSER_URL")
+    driver = webdriver.Remote(command_executor=f"{remote_browser_url}/wd/hub",
                               options=options)
     browser.config.base_url = "https://private.mybrocard.com/"
     browser.config.driver = driver
