@@ -13,7 +13,7 @@ from brocard_project.pages.registration_page import registration_page
 @allure.tag('regress', 'web', 'normal')
 @allure.severity('normal')
 @allure.label('layer', 'web')
-@pytest.mark.skip(reason='')
+@pytest.mark.skip(reason='An unused email address is required to register')
 def test_registration_user():
 
     user = NewUser(
