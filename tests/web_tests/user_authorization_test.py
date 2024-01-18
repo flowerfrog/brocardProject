@@ -81,3 +81,28 @@ def test_authorization_unregistered_user():
 
     with allure.step("Checking that user has not been authorized"):
         main_page.unregistered_user_must_not_be_authorized()
+
+
+@allure.epic('Authorized')
+@allure.label("owner", "flowerfrog")
+@allure.feature("Checking the authorization of the user")
+@allure.label('microservice', 'WEB')
+@allure.tag('regress', 'web', 'normal')
+@allure.severity('normal')
+@allure.label('layer', 'web')
+def test_authorization_user_with_invalid_email():
+
+    user = User(
+        name=os.getenv(''),
+        email=os.getenv('INVALID_USER_EMAIL'),
+        password=''
+    )
+
+    with allure.step("Open the main page"):
+        main_page.open()
+
+    with allure.step("Filling the authorization form"):
+        main_page.filling_authorization_form(user)
+
+    with allure.step("Checking that user has not been authorized"):
+        main_page.user_with_invalid_email_must_not_be_authorized()

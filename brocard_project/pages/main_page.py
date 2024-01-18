@@ -28,5 +28,9 @@ class MainPage:
         browser.element('.invalid-feedback').should(have.text('Неверно указаны e-mail и/или пароль'))
         return self
 
+    def user_with_invalid_email_must_not_be_authorized(self):
+        browser.element('.invalid-feedback').should(have.text('E-mail должен быть действительным электронным адресом.'))
+        return self
+
 
 main_page = MainPage()
