@@ -24,5 +24,9 @@ class MainPage:
         browser.element('[href="https://private.mybrocard.com/profile"] > div > .sub').should(have.text(user.email))
         return self
 
+    def unregistered_user_must_not_be_authorized(self):
+        browser.element('.invalid-feedback').should(have.text('Неверно указаны e-mail и/или пароль'))
+        return self
+
 
 main_page = MainPage()
