@@ -435,7 +435,7 @@ def test_get_list_cards_tag():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['tags'][0]['uuid'] == card_tag
-    assert result.json()['total'] == 4
+    assert result.json()['total'] == 5
 
 
 @allure.tag("api")
