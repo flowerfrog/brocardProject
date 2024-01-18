@@ -76,10 +76,6 @@ def test_authorization_unregistered_user():
     with allure.step("Open the main page"):
         main_page.open()
 
-    with allure.step("Set cookies for authorized without 2FA"):
-        main_page.set_cookie_authorized_without_2fa(cookie_name=os.getenv('COOKIE_NAME'),
-                                                    cookie_value=os.getenv('COOKIE_VALUE'))
-
     with allure.step("Filling the authorization form"):
         main_page.filling_authorization_form(user)
 
