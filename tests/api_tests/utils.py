@@ -9,7 +9,7 @@ import allure
 
 def load_env():
     load_dotenv()
-    API_KEY = os.getenv('API_KEY')
+    API_KEY = os.getenv('CUSTOMER_API_KEY')
     return API_KEY
 
 
