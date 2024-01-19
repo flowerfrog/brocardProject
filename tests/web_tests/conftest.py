@@ -1,13 +1,10 @@
 import os
-
 import pytest
 from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from brocard_project.helpers import attach_web
-
-DEFAULT_BROWSER_VERSION = "120.0"
 
 
 def pytest_addoption(parser):
