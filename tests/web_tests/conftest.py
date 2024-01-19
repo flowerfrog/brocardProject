@@ -12,7 +12,15 @@ DEFAULT_BROWSER_VERSION = "120.0"
 
 def pytest_addoption(parser):
     parser.addoption(
+        '--browser',
+        help='Browser for test',
+        choices=['firefox', 'chrome'],
+        default='chrome'
+    )
+    parser.addoption(
         '--browser_version',
+        help='Version of browser',
+        choices=['120.0', '119.0', '118.0'],
         default='120.0'
     )
 
@@ -24,13 +32,15 @@ def load_env():
 
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser(request):
+    browser_name = request.config.getoption('--browser')
     browser_version = request.config.getoption('--browser_version')
-    browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
     options = Options()
+
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
+
     selenoid_capabilities = {
-        "browserName": "chrome",
+        "browserName": browser_name,
         "browserVersion": browser_version,
         "selenoid:options": {
             "enableVNC": True,
@@ -38,10 +48,13 @@ def setup_browser(request):
         }
     }
     options.capabilities.update(selenoid_capabilities)
+
     load_dotenv()
     remote_browser_url = os.getenv("REMOTE_BROWSER_URL")
+
     driver = webdriver.Remote(command_executor=f"{remote_browser_url}/wd/hub",
                               options=options)
+
     browser.config.base_url = "https://private.mybrocard.com/"
     browser.config.driver = driver
     browser.config.driver_options = options
