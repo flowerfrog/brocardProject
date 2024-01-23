@@ -695,6 +695,3 @@ def test_get_list_with_decline_reason_card_balance_less_than_amount():
     jsonschema.validate(result.json(), schema)
     assert result.json()['total'] == 8
     assert result.json()['data'][0]['decline'] == decline_reason
-
-
-
