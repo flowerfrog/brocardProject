@@ -1,4 +1,4 @@
-from selene import browser, have, be
+from selene import browser, have, be, command
 
 
 class CardPage:
@@ -17,6 +17,11 @@ class CardPage:
 
     def get_value_of_count_active_company_cards(self, company):
         browser.element('span.font-medium:nth-child(3)').should(have.text(company.count_active_card))
+        return self
+
+    def get_value_of_count_company_members(self, company):
+        browser.element('.row.mt-3.fs-14').perform(command.js.scroll_into_view)
+        browser.element('span.font-medium:nth-child(3)').should(have.text(company.count_members))
         return self
 
 
