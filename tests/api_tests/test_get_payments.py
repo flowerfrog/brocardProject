@@ -23,7 +23,7 @@ def test_get_list_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 244
+    assert result.json()['total'] == 246
 
 
 @allure.tag("api")
@@ -47,7 +47,7 @@ def test_get_list_settled_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 48
+    assert result.json()['total'] == 50
     assert result.json()['data'][0]['state']['value'] == 1
     assert result.json()['data'][0]['state']['label'] == "Settled"
 
@@ -202,7 +202,7 @@ def test_get_list_payments_with_given_country():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 3
+    assert result.json()['total'] == 4
     assert result.json()['data'][0]['merchant']['country']['id'] == 111
     assert result.json()['data'][0]['merchant']['country']['code'] == "IE"
 
@@ -331,7 +331,7 @@ def test_get_list_payments_include_micropayments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 244
+    assert result.json()['total'] == 246
     assert (result.json()['data'][0]['is_micro'] is True) or (result.json()['data'][0]['is_micro'] is False)
 
 
@@ -381,7 +381,7 @@ def test_get_list_payments_exclude_micropayments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 234
+    assert result.json()['total'] == 236
     assert result.json()['data'][0]['is_micro'] is False
 
 
