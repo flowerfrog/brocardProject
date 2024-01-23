@@ -5,3 +5,4 @@ import dataclasses
 class Company:
     name: str
     count_active_card: str
+    count_members: str
