@@ -24,5 +24,10 @@ class CardPage:
         browser.element('span.font-medium:nth-child(3)').should(have.text(company.count_members))
         return self
 
+    def get_value_of_count_released_cards_today(self, company):
+        results = (browser.all('tbody[data-v-0a93b396]'))
+        results.should(have.size(int(company.count_released_card_today)))
+        return self
+
 
 card_page = CardPage()

@@ -22,5 +22,14 @@ class CompanyDashboard:
         browser.element('div:nth-child(2) > div > div > div.mt-3.fs-14 > a').should(be.visible).click()
         return self
 
+    def get_value_of_count_card_from_released_cards_today_widget(self, company):
+        (browser.element('div:nth-child(3) > div > div > div:nth-child(1) > h3')
+         .should(have.text(company.count_released_card_today)))
+        return self
+
+    def clicking_on_link_cards_in_released_cards_today_widget(self):
+        browser.element('div:nth-child(3) > div > div > div.d-flex > a').should(be.visible).click()
+        return self
+
 
 company_dashboard = CompanyDashboard()
