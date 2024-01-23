@@ -26,7 +26,7 @@ def test_stats_in_widget_active_card_of_company():
 
     company = Company(
         name='',
-        count_active_card='33',
+        count_active_card='37',
         count_members='',
         count_released_card_today='',
         cashback='',
@@ -108,7 +108,7 @@ def test_stats_in_widget_released_cards_today():
         name='',
         count_active_card='',
         count_members='',
-        count_released_card_today='1',
+        count_released_card_today='5',
         cashback='',
         decline_rate_for_last_month=''
     )
