@@ -31,5 +31,15 @@ class CompanyDashboard:
         browser.element('div:nth-child(3) > div > div > div.d-flex > a').should(be.visible).click()
         return self
 
+    def choosing_last_month_in_widget_cashback(self):
+        browser.element('[data-v-182d5a6c] > [type="button"]').should(be.visible).click()
+        browser.element('.dropdown-menu.show > div:nth-child(1)').should(be.visible).click()
+        return self
+
+    def get_values_DR_and_sum_cashback_from_widget_cashback(self, company):
+        browser.element('h3[data-v-182d5a6c]').should(have.text(company.cashback))
+        browser.element('strong[data-v-182d5a6c]').should(have.text(company.decline_rate_for_last_month))
+        return self
+
 
 company_dashboard = CompanyDashboard()
