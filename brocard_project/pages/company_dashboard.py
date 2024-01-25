@@ -50,5 +50,10 @@ class CompanyDashboard:
         browser.element('a[data-v-039d2888]').should(be.visible).click()
         return self
 
+    def get_values_DR7_and_DR30_from_widget_decline_rate(self, company):
+        browser.element('p:nth-child(1) > [data-v-039d2888]> span').should(have.text(company.dr_7))
+        browser.element('p:nth-child(2) > [data-v-039d2888]> span').should(have.text(company.dr_30))
+        return self
+
 
 company_dashboard = CompanyDashboard()
