@@ -14,6 +14,7 @@ from brocard_project.pages.main_page import main_page
 def test_authorization_registered_admin():
 
     user = User(
+        id=0,
         name=os.getenv('ADMIN_NAME'),
         email=os.getenv('ADMIN_EMAIL'),
         password=os.getenv('ADMIN_PASSWORD')
@@ -39,6 +40,7 @@ def test_authorization_registered_admin():
 def test_authorization_registered_customer():
 
     user = User(
+        id=0,
         name=os.getenv('CUSTOMER_NAME'),
         email=os.getenv('CUSTOMER_EMAIL'),
         password=os.getenv('CUSTOMER_PASSWORD')
@@ -68,6 +70,7 @@ def test_authorization_registered_customer():
 def test_authorization_unregistered_user():
 
     user = User(
+        id=0,
         name=os.getenv('UNREGISTERED_USER_NAME'),
         email=os.getenv('UNREGISTERED_USER_EMAIL'),
         password=os.getenv('UNREGISTERED_USER_PASSWORD')
@@ -93,6 +96,7 @@ def test_authorization_unregistered_user():
 def test_authorization_user_with_invalid_email():
 
     user = User(
+        id=0,
         name=os.getenv(''),
         email=os.getenv('INVALID_USER_EMAIL'),
         password=''
