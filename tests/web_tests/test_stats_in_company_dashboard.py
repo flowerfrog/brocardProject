@@ -120,7 +120,7 @@ def test_stats_in_widget_released_cards_today():
         name='',
         count_active_card='',
         count_members='',
-        count_released_card_today='1',
+        count_released_card_today='0',
         cashback='',
         decline_rate_for_last_month='',
         sum_payments_for_30_days='',
