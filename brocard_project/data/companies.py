@@ -10,3 +10,5 @@ class Company:
     cashback: str
     decline_rate_for_last_month: str
     sum_payments_for_30_days: str
+    dr_7: str
+    dr_30: str
