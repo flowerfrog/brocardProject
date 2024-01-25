@@ -9,3 +9,4 @@ class Company:
     count_released_card_today: str
     cashback: str
     decline_rate_for_last_month: str
+    sum_payments_for_30_days: str
