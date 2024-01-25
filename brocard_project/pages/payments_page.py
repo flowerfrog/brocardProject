@@ -1,4 +1,4 @@
-from selene import browser, be, have
+from selene import browser, be, have, command
 
 
 class PaymentPage:
@@ -18,6 +18,7 @@ class PaymentPage:
 
     def get_value_DR(self, company):
         browser.element('tbody > tr > td:nth-child(15)').should(have.text(company.decline_rate_for_last_month))
+        browser.element('footer.footer').perform(command.js.scroll_into_view)
         return self
 
     def get_sum_cashback(self, company):
