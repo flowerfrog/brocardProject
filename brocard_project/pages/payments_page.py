@@ -31,5 +31,9 @@ class PaymentPage:
             browser.element('tbody > tr > td:nth-child(13)').should(have.text(str(round((value_cashback * 4), 1))))
         return self
 
+    def get_sum_payments(self, company):
+        browser.element('[data-v-4e77dd19]:nth-child(2) > strong').should(have.text(company.sum_payments_for_30_days))
+        return self
+
 
 payment_page = PaymentPage()

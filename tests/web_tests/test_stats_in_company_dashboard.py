@@ -30,7 +30,8 @@ def test_stats_in_widget_active_card_of_company():
         count_members='',
         count_released_card_today='',
         cashback='',
-        decline_rate_for_last_month=''
+        decline_rate_for_last_month='',
+        sum_payments_for_30_days=''
     )
 
     with allure.step("Open the company dashboard"):
@@ -71,7 +72,8 @@ def test_stats_in_widget_members():
         count_members='117',
         count_released_card_today='',
         cashback='',
-        decline_rate_for_last_month=''
+        decline_rate_for_last_month='',
+        sum_payments_for_30_days=''
     )
 
     with allure.step("Open the company dashboard"):
@@ -110,7 +112,8 @@ def test_stats_in_widget_released_cards_today():
         count_members='',
         count_released_card_today='0',
         cashback='',
-        decline_rate_for_last_month=''
+        decline_rate_for_last_month='',
+        sum_payments_for_30_days=''
     )
 
     with allure.step("Open the company dashboard"):
@@ -149,7 +152,8 @@ def test_stats_in_widget_cashback():
         count_members='',
         count_released_card_today='',
         cashback='$0.13',
-        decline_rate_for_last_month='11.11%'
+        decline_rate_for_last_month='11.11%',
+        sum_payments_for_30_days=''
     )
 
     with allure.step("Open the company dashboard"):
@@ -169,3 +173,43 @@ def test_stats_in_widget_cashback():
     with allure.step("Get the values DR and sum cashback of the payments page"):
         payment_page.get_value_DR(company)
         payment_page.get_sum_cashback(company)
+
+
+@allure.epic('Statistics')
+@allure.label("owner", "flowerfrog")
+@allure.feature("Checking the display of statistics in the widget company payments for 30 days")
+@allure.label('microservice', 'WEB')
+@allure.tag('regress', 'web', 'normal')
+@allure.severity('normal')
+@allure.label('layer', 'web')
+def test_stats_in_widget_company_payments_for_30_days():
+
+    user = User(
+        name=os.getenv('CUSTOMER_NAME'),
+        email=os.getenv('CUSTOMER_EMAIL'),
+        password=os.getenv('CUSTOMER_PASSWORD')
+    )
+
+    company = Company(
+        name='',
+        count_active_card='',
+        count_members='',
+        count_released_card_today='',
+        cashback='$0.13',
+        decline_rate_for_last_month='11.11%',
+        sum_payments_for_30_days='$1.05'
+    )
+
+    with allure.step("Open the company dashboard"):
+        main_page.open()
+        main_page.set_cookie_authorized_without_2fa(cookie_name=os.getenv('COOKIE_NAME'),
+                                                    cookie_value=os.getenv('COOKIE_VALUE'))
+        main_page.filling_authorization_form(user)
+
+    with allure.step("Get the value of the sum of company payments for 30 days on the company's dashboard"):
+        company_dashboard.get_value_sum_payments_for_30_days(company)
+        company_dashboard.clicking_on_link_more_details_in_sum_payments_for_30_days_widget()
+
+    with allure.step("Compare the obtained value with the value of the sum of company payments for 30 days"
+                     " in the list of payments"):
+        payment_page.get_sum_payments(company)

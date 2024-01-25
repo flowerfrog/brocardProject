@@ -41,5 +41,14 @@ class CompanyDashboard:
         browser.element('strong[data-v-182d5a6c]').should(have.text(company.decline_rate_for_last_month))
         return self
 
+    def get_value_sum_payments_for_30_days(self, company):
+        value_sum = float(company.sum_payments_for_30_days.split('$')[1])
+        browser.element('p.h3[data-v-039d2888]').should(have.text(str(round(value_sum, 0))))
+        return self
+
+    def clicking_on_link_more_details_in_sum_payments_for_30_days_widget(self):
+        browser.element('a[data-v-039d2888]').should(be.visible).click()
+        return self
+
 
 company_dashboard = CompanyDashboard()
