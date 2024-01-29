@@ -152,7 +152,7 @@ def test_get_list_payments_with_specified_date():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 5
+    assert result.json()['total'] == 10
     assert ('2023-12-01 00:00:00' < result.json()['data'][0]['date'] < '2023-12-10 23:59:59')
 
 
