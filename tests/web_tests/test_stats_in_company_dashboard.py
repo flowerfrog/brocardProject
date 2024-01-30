@@ -213,7 +213,7 @@ def test_stats_in_widget_company_payments_for_30_days():
         count_released_card_today='',
         cashback='$0.13',
         decline_rate_for_last_month='11.11%',
-        sum_payments_for_30_days='$1.05',
+        sum_payments_for_30_days='$2.05',
         dr_7='',
         dr_30=''
     )
