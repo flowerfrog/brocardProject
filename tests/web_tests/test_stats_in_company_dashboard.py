@@ -30,7 +30,7 @@ def test_stats_in_widget_active_card_of_company():
 
     company = Company(
         name='',
-        count_active_card='37',
+        count_active_card='38',
         count_members='',
         count_released_card_today='',
         cashback='',
@@ -264,8 +264,8 @@ def test_stats_in_widget_decline_rate():
         cashback='',
         decline_rate_for_last_month='',
         sum_payments_for_30_days='',
-        dr_7='46.15',
-        dr_30='40'
+        dr_7='49.25',
+        dr_30='39.52'
     )
 
     with allure.step("Open the company dashboard"):
