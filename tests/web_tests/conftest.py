@@ -33,8 +33,8 @@ def setup_browser(request):
     browser_version = request.config.getoption('--browser_version')
     options = Options()
 
-    # options.add_argument('--no-sandbox')
-    # options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
 
     selenoid_capabilities = {
         "browserName": browser_name,
