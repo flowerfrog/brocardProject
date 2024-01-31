@@ -8,5 +8,16 @@
     "name": "Infrastructure problems",
     "messageRegex": ".*RuntimeException.*",
     "matchedStatuses": ["broken"]
+  },
+
+  {
+    "name": "Outdated tests",
+    "messageRegex": ".*FileNotFound.*",
+    "matchedStatuses": ["broken"]
+  },
+  {
+    "name": "Passed",
+    "messageRegex": ".*",
+    "matchedStatuses": [ "passed" ]
   }
 ]
