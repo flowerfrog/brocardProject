@@ -261,8 +261,8 @@ def test_stats_in_widget_decline_rate():
         cashback='',
         decline_rate_for_last_month='',
         sum_payments_for_30_days='',
-        dr_7='49.25',
-        dr_30='39.52'
+        dr_7='55.74',
+        dr_30='42.22'
     )
 
     with allure.step("Open the company dashboard"):
