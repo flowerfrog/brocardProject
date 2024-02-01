@@ -311,7 +311,7 @@ def test_stats_in_widget_teams():
         id=1,
         name='Малинки',
         count_members='21',
-        count_active_card='38',
+        count_active_card='39',
         spend='$237.06',
         total_balance='$1,449.79',
         dr_7='-',
