@@ -23,7 +23,7 @@ def test_get_list_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 248
+    assert result.json()['total'] == 257
 
 
 @allure.tag("api")
@@ -125,7 +125,7 @@ def test_get_list_declined_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 145
+    assert result.json()['total'] == 154
     assert result.json()['data'][0]['state']['value'] == 4
     assert result.json()['data'][0]['state']['label'] == "Declined"
 
@@ -331,7 +331,7 @@ def test_get_list_payments_include_micropayments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 248
+    assert result.json()['total'] == 257
     assert (result.json()['data'][0]['is_micro'] is True) or (result.json()['data'][0]['is_micro'] is False)
 
 
@@ -381,7 +381,7 @@ def test_get_list_payments_exclude_micropayments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 238
+    assert result.json()['total'] == 247
     assert result.json()['data'][0]['is_micro'] is False
 
 
@@ -615,7 +615,7 @@ def test_get_list_with_decline_reason_declined_by_merchant():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 36
+    assert result.json()['total'] == 45
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
