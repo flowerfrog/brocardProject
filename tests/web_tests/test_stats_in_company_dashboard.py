@@ -1,5 +1,6 @@
 import os
 import allure
+import pytest
 
 from brocard_project.data.companies import Company
 from brocard_project.data.users import User
@@ -332,7 +333,7 @@ def test_stats_in_widget_teams():
 
     with allure.step("Checking that the values on the company dashboard converge "
                      "with the values of the selected team in the members section"):
-        # members_page.get_values_total_balance_and_spend(team)
+        members_page.get_values_total_balance_and_spend(team)
         members_page.get_count_members_of_team(team)
 
     with allure.step("Open the teams page in the admin cabinet"):
