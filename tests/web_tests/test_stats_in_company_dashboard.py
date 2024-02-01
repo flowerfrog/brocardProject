@@ -32,7 +32,7 @@ def test_stats_in_widget_active_card_of_company():
 
     company = Company(
         name='',
-        count_active_card='38',
+        count_active_card='39',
         count_members='',
         count_released_card_today='',
         cashback='',
