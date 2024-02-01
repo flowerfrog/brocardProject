@@ -1,6 +1,5 @@
 import os
 import allure
-import pytest
 
 from brocard_project.data.companies import Company
 from brocard_project.data.users import User
