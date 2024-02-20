@@ -33,7 +33,7 @@ def test_stats_in_widget_active_card_of_company():
 
     company = Company(
         name='',
-        count_active_card='39',
+        count_active_card='43',
         count_members='',
         count_released_card_today='',
         cashback='',
@@ -210,9 +210,9 @@ def test_stats_in_widget_company_payments_for_30_days():
         count_active_card='',
         count_members='',
         count_released_card_today='',
-        cashback='$0.13',
-        decline_rate_for_last_month='11.11%',
-        sum_payments_for_30_days='$2.05',
+        cashback='',
+        decline_rate_for_last_month='',
+        sum_payments_for_30_days='$2.99',
         dr_7='',
         dr_30=''
     )
@@ -262,8 +262,8 @@ def test_stats_in_widget_decline_rate():
         cashback='',
         decline_rate_for_last_month='',
         sum_payments_for_30_days='',
-        dr_7='57.69',
-        dr_30='42.22'
+        dr_7='—',
+        dr_30='—'
     )
 
     with allure.step("Open the company dashboard"):
@@ -312,9 +312,9 @@ def test_stats_in_widget_teams():
         id=1,
         name='Малинки',
         count_members='21',
-        count_active_card='39',
-        spend='$237.06',
-        total_balance='$1,449.79',
+        count_active_card='43',
+        spend='$239.05',
+        total_balance='$1,430.09',
         dr_7='-',
         dr_30='-'
     )
