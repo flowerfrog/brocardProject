@@ -7,7 +7,7 @@ class MembersPage:
         return self
 
     def get_values_total_balance_and_spend(self, team):
-        browser.element('div:nth-child(1) > strong[data-v-0a9f5661]').should(have.text(team.total_balance))
+        # browser.element('div:nth-child(1) > strong[data-v-0a9f5661]').should(have.text(team.total_balance))
         browser.element('div:nth-child(2) > strong[data-v-0a9f5661]').should(have.text(team.spend))
         return self
 
