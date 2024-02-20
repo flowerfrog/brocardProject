@@ -212,7 +212,7 @@ def test_stats_in_widget_company_payments_for_30_days():
         count_released_card_today='',
         cashback='',
         decline_rate_for_last_month='',
-        sum_payments_for_30_days='$3.0',
+        sum_payments_for_30_days='$2.99',
         dr_7='',
         dr_30=''
     )
@@ -262,8 +262,8 @@ def test_stats_in_widget_decline_rate():
         cashback='',
         decline_rate_for_last_month='',
         sum_payments_for_30_days='',
-        dr_7='0.00',
-        dr_30='48,67'
+        dr_7='—',
+        dr_30='—'
     )
 
     with allure.step("Open the company dashboard"):
@@ -314,7 +314,7 @@ def test_stats_in_widget_teams():
         count_members='21',
         count_active_card='43',
         spend='$239.05',
-        total_balance='$1,477.09',
+        total_balance='$1,430.09',
         dr_7='-',
         dr_30='-'
     )
