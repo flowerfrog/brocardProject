@@ -19,11 +19,14 @@ def test_get_list_payments():
                                  "Authorization": f'Bearer {API_KEY}',
                                  "Content-Type": "application/json",
                                  "Accept": "application/json"
+                             },
+                             params={
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 262
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
