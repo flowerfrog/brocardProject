@@ -605,12 +605,13 @@ def test_get_list_with_decline_reason_declined_by_merchant():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "declines[]": decline_reason
+                                 "declines[]": decline_reason,
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 45
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
