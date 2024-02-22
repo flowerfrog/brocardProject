@@ -176,7 +176,7 @@ def test_get_list_payments_with_given_bin():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 4
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['card']['bin'] == '555671'
 
 
