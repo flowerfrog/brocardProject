@@ -21,7 +21,8 @@ def test_get_balance_card():
                                  "Content-Type": "application/json",
                                  "Accept": "application/json"
                              },
-                             params={"bins[]": card_bin})
+                             params={"bins[]": card_bin,
+                                     "archived": "include"})
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
