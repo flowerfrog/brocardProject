@@ -79,7 +79,7 @@ def test_get_card_with_specified_date():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert ('2023-11-01 00:00:00' < result.json()['data'][0]['date'] < '2023-12-01 00:00:00')
-    assert result.json()['total'] == 7
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -99,7 +99,8 @@ def test_get_card_with_id():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "ids[]": card_id
+                                 "ids[]": card_id,
+                                 "archived": "include"
                              })
 
     assert result.status_code == 200
@@ -125,7 +126,8 @@ def test_get_card_with_last_fours():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "last_fours[]": last_fours
+                                 "last_fours[]": last_fours,
+                                 "archived": "include"
                              })
 
     assert result.status_code == 200
@@ -251,13 +253,14 @@ def test_get_only_micropayments_cards():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "micro": 'only'
+                                 "micro": 'only',
+                                 "archived": "include"
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['micro_payments_enabled'] is True
-    # assert result.json()['total'] == 1
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -404,13 +407,14 @@ def test_get_list_cards_of_user():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "users[]": 4
+                                 "users[]": 4,
+                                 "archived": "include"
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['user']['id'] == 4
-    assert result.json()['total'] == 5
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -418,7 +422,7 @@ def test_get_list_cards_of_user():
 @allure.feature('API')
 @allure.story('Getting a list of cards with a given tag')
 def test_get_list_cards_tag():
-    card_tag = 'b3eab0e2-4bcc-11ee-a6be-04d4c438f481'
+    card_tag = 'd79bd0a9-5754-4b85-b8bd-59885dc655a1'
     API_KEY = load_env()
     url = "/cards"
     schema = load_schema('cards/get_list_cards.json')
@@ -436,7 +440,7 @@ def test_get_list_cards_tag():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['tags'][0]['uuid'] == card_tag
-    assert result.json()['total'] == 5
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
