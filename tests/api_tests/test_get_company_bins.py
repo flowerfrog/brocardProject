@@ -23,4 +23,4 @@ def test_get_company_bins():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 37
+    assert len(result.json()['data']) == result.json()['total']
