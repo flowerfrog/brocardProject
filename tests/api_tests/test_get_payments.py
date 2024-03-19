@@ -45,7 +45,8 @@ def test_get_list_settled_payments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "states[]": 1
+                                 "states[]": 1,
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
@@ -97,7 +98,8 @@ def test_get_list_void_payments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "states[]": 2
+                                 "states[]": 2,
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
@@ -123,7 +125,8 @@ def test_get_list_declined_payments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "states[]": 4
+                                 "states[]": 4,
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
@@ -329,7 +332,8 @@ def test_get_list_payments_include_micropayments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "micro": "include"
+                                 "micro": "include",
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
@@ -379,7 +383,8 @@ def test_get_list_payments_exclude_micropayments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "micro": "exclude"
+                                 "micro": "exclude",
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
