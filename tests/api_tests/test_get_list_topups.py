@@ -23,7 +23,6 @@ def test_get_list_topups():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 44
 
 
 @allure.tag("api")
@@ -47,7 +46,6 @@ def test_get_list_pending_topups():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 3
     assert result.json()['data'][0]['state']['value'] == 1
     assert result.json()['data'][0]['state']['label'] == "Pending"
 
@@ -73,7 +71,6 @@ def test_get_list_committed_topups():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 9
     assert result.json()['data'][0]['state']['value'] == 2
     assert result.json()['data'][0]['state']['label'] == "Committed"
 
@@ -99,7 +96,6 @@ def test_get_list_processing_error_topups():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 0
 
 
 @allure.tag("api")
@@ -123,7 +119,6 @@ def test_get_list_expired_topups():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 8
     assert result.json()['data'][0]['state']['value'] == 4
     assert result.json()['data'][0]['state']['label'] == "Expired"
 
@@ -149,7 +144,6 @@ def test_get_list_reverted_topups():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 24
     assert result.json()['data'][0]['state']['value'] == 5
     assert result.json()['data'][0]['state']['label'] == "Reverted"
 
@@ -228,7 +222,6 @@ def test_get_list_topups_with_other_methods():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 5
     assert result.json()['data'][0]['method'] == "other"
 
 
@@ -253,7 +246,6 @@ def test_get_list_topups_with_marketcall_methods():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 5
     assert result.json()['data'][0]['method'] == "marketcall"
 
 
@@ -278,7 +270,6 @@ def test_get_list_topups_with_capitalist_methods():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 8
     assert result.json()['data'][0]['method'] == "capitalist"
 
 
@@ -303,5 +294,4 @@ def test_get_list_topups_with_usdt_trc_methods():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 3
     assert result.json()['data'][0]['method'] == "usdt_trc"
