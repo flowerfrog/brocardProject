@@ -408,7 +408,8 @@ def test_get_list_cards_of_user():
                              },
                              params={
                                  "users[]": 4,
-                                 "archived": "include"
+                                 "archived": "include",
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
