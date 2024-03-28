@@ -105,7 +105,7 @@
       "type": "null"
     },
     "next_cursor": {
-      "type": "null"
+      "type": "string"
     },
     "request_id": {
       "type": "string"
