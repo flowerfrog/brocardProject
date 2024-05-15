@@ -73,12 +73,12 @@ def test_get_card_with_specified_date():
                              },
                              params={
                                  "dates[begin]": '2023-11-01 00:00:00',
-                                 "dates[end]": '2023-12-01 00:00:00',
+                                 "dates[end]": '2024-05-01 00:00:00',
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert ('2023-11-01 00:00:00' < result.json()['data'][0]['date'] < '2023-12-01 00:00:00')
+    assert ('2023-11-01 00:00:00' < result.json()['data'][0]['date'] < '2024-05-01 00:00:00')
     assert len(result.json()['data']) == result.json()['total']
 
 
