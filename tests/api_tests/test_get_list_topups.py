@@ -19,6 +19,9 @@ def test_get_list_topups():
                                  "Authorization": f'Bearer {API_KEY}',
                                  "Content-Type": "application/json",
                                  "Accept": "application/json"
+                             },
+                             params={
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
