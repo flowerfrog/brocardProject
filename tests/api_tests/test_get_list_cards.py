@@ -74,6 +74,7 @@ def test_get_card_with_specified_date():
                              params={
                                  "dates[begin]": '2023-11-01 00:00:00',
                                  "dates[end]": '2024-05-01 00:00:00',
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
