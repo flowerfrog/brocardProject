@@ -149,7 +149,7 @@ def test_get_refund_with_given_team():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['user']['team']['id'] == 1
-    assert len(result.json()['data']) == 7
+    assert len(result.json()['data']) == 20
 
 
 @allure.tag("api")
