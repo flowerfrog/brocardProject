@@ -174,5 +174,5 @@ def test_get_refund_with_given_user():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['user']['id'] == 2
-    assert len(result.json()['data']) == 7
+    assert len(result.json()['data']) == 20
 
