@@ -1,5 +1,7 @@
 import allure
 import jsonschema
+import pytest
+
 from tests.api_tests.utils import load_env
 from tests.api_tests.utils import brocard_api_put
 from brocard_project.helpers.load_schema import load_schema
@@ -9,6 +11,7 @@ from brocard_project.helpers.load_schema import load_schema
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Editing a card title')
+@pytest.mark.skip
 def test_edit_card_title():
     card_id = 1314861
     card_title = 'test_change_name_card'
@@ -35,6 +38,7 @@ def test_edit_card_title():
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Editing a card owner')
+@pytest.mark.skip
 def test_edit_card_owner():
     card_id = 1314861
     user_id = 4

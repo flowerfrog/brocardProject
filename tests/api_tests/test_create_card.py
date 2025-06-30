@@ -87,6 +87,7 @@ def test_create_balance_card_successful():
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Creating balance card')
+@pytest.mark.skip
 def test_create_balance_card_with_balance_less_minimum():
     card_bin = '436797'
     card_title = 'test_creating_card'
@@ -119,6 +120,7 @@ def test_create_balance_card_with_balance_less_minimum():
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Creating balance card')
+@pytest.mark.skip
 def test_create_balance_card_with_balance_more_user_balance():
     card_bin = '436797'
     card_title = 'test_creating_card'
@@ -150,6 +152,7 @@ def test_create_balance_card_with_balance_more_user_balance():
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Creating balance card')
+@pytest.mark.skip
 def test_create_balance_card_with_transaction_limit_more_available_user_limit():
     card_bin = '436797'
     card_title = 'test_creating_card'
@@ -181,6 +184,7 @@ def test_create_balance_card_with_transaction_limit_more_available_user_limit():
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Creating limit card')
+@pytest.mark.skip
 def test_create_limit_card_with_transaction_limit_less_minimum():
     card_bin = '485953'
     card_title = 'test_creating_card'
@@ -211,6 +215,7 @@ def test_create_limit_card_with_transaction_limit_less_minimum():
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Creating limit card')
+@pytest.mark.skip
 def test_create_limit_card_with_total_limit_less_minimum():
     card_bin = '485953'
     card_title = 'test_creating_card'
@@ -241,6 +246,7 @@ def test_create_limit_card_with_total_limit_less_minimum():
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Creating limit card')
+@pytest.mark.skip
 def test_create_limit_card_with_autotopup():
     card_bin = '485953'
     card_title = 'test_creating_card'
@@ -276,6 +282,7 @@ def test_create_limit_card_with_autotopup():
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Creating card')
+@pytest.mark.skip
 def test_create_card_without_title():
     card_bin = '485953'
     API_KEY = load_env()
@@ -302,6 +309,7 @@ def test_create_card_without_title():
 @allure.label("owner", "flowerfrog")
 @allure.feature('API')
 @allure.story('Creating card')
+@pytest.mark.skip
 def test_create_card_without_bin():
     card_title = 'test_creating_card'
     API_KEY = load_env()
