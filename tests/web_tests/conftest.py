@@ -17,8 +17,8 @@ def pytest_addoption(parser):
     parser.addoption(
         '--browser_version',
         help='Version of browser',
-        choices=['120.0', '119.0', '118.0'],
-        default='120.0'
+        choices=['128.0', '127.0'],
+        default='128.0'
     )
 
 
