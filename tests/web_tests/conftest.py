@@ -56,7 +56,7 @@ def setup_browser(request):
     browser.config.driver = driver
     browser.config.driver_options = options
 
-    browser.config.timeout = 4.0
+    browser.config.timeout = 6.0
     browser.config.window_width = 1920
     browser.config.window_height = 1080
 

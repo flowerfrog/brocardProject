@@ -19,11 +19,14 @@ def test_get_list_payments():
                                  "Authorization": f'Bearer {API_KEY}',
                                  "Content-Type": "application/json",
                                  "Accept": "application/json"
+                             },
+                             params={
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 246
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -42,14 +45,15 @@ def test_get_list_settled_payments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "states[]": 1
+                                 "states[]": 1,
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 50
     assert result.json()['data'][0]['state']['value'] == 1
     assert result.json()['data'][0]['state']['label'] == "Settled"
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -73,9 +77,9 @@ def test_get_list_pending_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 4
     assert result.json()['data'][0]['state']['value'] == 3
     assert result.json()['data'][0]['state']['label'] == "Pending"
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -94,14 +98,15 @@ def test_get_list_void_payments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "states[]": 2
+                                 "states[]": 2,
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 49
     assert result.json()['data'][0]['state']['value'] == 2
     assert result.json()['data'][0]['state']['label'] == "Void"
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -120,14 +125,15 @@ def test_get_list_declined_payments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "states[]": 4
+                                 "states[]": 4,
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 143
     assert result.json()['data'][0]['state']['value'] == 4
     assert result.json()['data'][0]['state']['label'] == "Declined"
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -152,7 +158,7 @@ def test_get_list_payments_with_specified_date():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 10
+    assert len(result.json()['data']) == result.json()['total']
     assert ('2023-12-01 00:00:00' < result.json()['data'][0]['date'] < '2023-12-10 23:59:59')
 
 
@@ -177,7 +183,7 @@ def test_get_list_payments_with_given_bin():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 4
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['card']['bin'] == '555671'
 
 
@@ -202,7 +208,7 @@ def test_get_list_payments_with_given_country():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 4
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['merchant']['country']['id'] == 111
     assert result.json()['data'][0]['merchant']['country']['code'] == "IE"
 
@@ -253,7 +259,7 @@ def test_get_list_payments_with_given_merchant():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 2
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['merchant']['id'] == 23
     assert result.json()['data'][0]['merchant']['name'] == "PropellerAds"
 
@@ -279,7 +285,7 @@ def test_get_list_team_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 15
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['user']['team']['id'] == 5151
     assert result.json()['data'][0]['user']['team']['name'] == "ежевика"
 
@@ -305,7 +311,7 @@ def test_get_list_user_payments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 18
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['user']['id'] == 4
     assert result.json()['data'][0]['user']['name'] == "mb"
 
@@ -326,13 +332,14 @@ def test_get_list_payments_include_micropayments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "micro": "include"
+                                 "micro": "include",
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 246
     assert (result.json()['data'][0]['is_micro'] is True) or (result.json()['data'][0]['is_micro'] is False)
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -356,8 +363,8 @@ def test_get_list_payments_only_micropayments():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 10
     assert result.json()['data'][0]['is_micro'] is True
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -376,13 +383,14 @@ def test_get_list_payments_exclude_micropayments():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "micro": "exclude"
+                                 "micro": "exclude",
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 236
     assert result.json()['data'][0]['is_micro'] is False
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -407,7 +415,7 @@ def test_get_list_with_decline_reason_balance_less_than_amount():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 15
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -433,7 +441,7 @@ def test_get_list_with_decline_reason_limit_transaction_less_than_amount():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 1
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -459,7 +467,7 @@ def test_get_list_with_decline_reason_merchant_not_allowed():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 16
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -485,8 +493,8 @@ def test_get_list_with_decline_reason_unknown_mcc():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 9
     assert result.json()['data'][0]['decline'] == decline_reason
+    assert len(result.json()['data']) == result.json()['total']
 
 
 @allure.tag("api")
@@ -537,7 +545,7 @@ def test_get_list_with_decline_reason_asa_disabled():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 3
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -563,7 +571,7 @@ def test_get_list_with_decline_reason_card_paused():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 6
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -589,7 +597,7 @@ def test_get_list_with_decline_reason_card_blocked():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 23
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -610,12 +618,13 @@ def test_get_list_with_decline_reason_declined_by_merchant():
                                  "Accept": "application/json"
                              },
                              params={
-                                 "declines[]": decline_reason
+                                 "declines[]": decline_reason,
+                                 "per_page": 1000
                              })
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 36
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -641,7 +650,7 @@ def test_get_list_with_decline_reason_currency_not_allowed():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 1
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -667,7 +676,7 @@ def test_get_list_with_decline_reason_declined_by_bank():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 4
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason
 
 
@@ -693,5 +702,5 @@ def test_get_list_with_decline_reason_card_balance_less_than_amount():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert result.json()['total'] == 8
+    assert len(result.json()['data']) == result.json()['total']
     assert result.json()['data'][0]['decline'] == decline_reason

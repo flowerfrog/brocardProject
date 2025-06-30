@@ -55,5 +55,25 @@ class CompanyDashboard:
         browser.element('p:nth-child(2) > [data-v-039d2888]> span').should(have.text(company.dr_30))
         return self
 
+    def get_values_from_widget_teams(self, team):
+        (browser.element(f'[href="https://private.mybrocard.com/company/members?team_id={team.id}&state=2"]')
+         .should(have.text(team.count_members)))
+        (browser.element(f'[href="https://private.mybrocard.com/company/cards?team[0]={team.id}&state=2"]')
+         .should(have.text(team.count_active_card)))
+        browser.element('tbody > tr:nth-child(1) > td[data-v-56a03558]:nth-child(5)').should(have.text(team.spend))
+        (browser.element('tbody > tr:nth-child(1) > td[data-v-56a03558]:nth-child(6)')
+         .should(have.text(team.total_balance)))
+        browser.element('tbody > tr:nth-child(1) > td[data-v-56a03558]:nth-child(8)').should(have.text(team.dr_7))
+        browser.element('tbody > tr:nth-child(1) > td[data-v-56a03558]:nth-child(9)').should(have.text(team.dr_30))
+        return self
+
+    def clicking_on_link_in_column_members_in_widget_members(self):
+        browser.element('tbody > tr:nth-child(1) > td:nth-child(3) > a').should(be.visible).click()
+        return self
+
+    def clicking_on_link_in_column_active_cards_in_widget_members(self):
+        browser.element('tbody > tr:nth-child(1) > td:nth-child(4) > a').should(be.visible).click()
+        return self
+
 
 company_dashboard = CompanyDashboard()

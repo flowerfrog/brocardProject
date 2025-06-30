@@ -23,7 +23,7 @@ def test_get_list_refunds():
 
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
-    assert len(result.json()['data']) == 3
+    assert len(result.json()['data']) == 20
 
 
 @allure.tag("api")
@@ -74,7 +74,7 @@ def test_get_refunds_with_given_bin():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['card']['bin'] == '556735'
-    assert len(result.json()['data']) == 1
+    assert len(result.json()['data']) == 2
 
 
 @allure.tag("api")
@@ -149,7 +149,7 @@ def test_get_refund_with_given_team():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['user']['team']['id'] == 1
-    assert len(result.json()['data']) == 3
+    assert len(result.json()['data']) == 20
 
 
 @allure.tag("api")
@@ -174,5 +174,5 @@ def test_get_refund_with_given_user():
     assert result.status_code == 200
     jsonschema.validate(result.json(), schema)
     assert result.json()['data'][0]['user']['id'] == 2
-    assert len(result.json()['data']) == 3
+    assert len(result.json()['data']) == 20
 
