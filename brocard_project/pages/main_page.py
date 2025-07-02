@@ -12,7 +12,7 @@ class MainPage:
 
     def filling_authorization_form(self, user):
         browser.element('[id="email"]').should(be.visible).type(user.email)
-        browser.element('[id="password"]').should(be.visible).type(user.password)
+        browser.element('[autocomplete=current-password]').should(be.visible).type(user.password)
         browser.element('[type="submit"]').should(be.visible).click()
         return self
 
