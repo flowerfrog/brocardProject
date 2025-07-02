@@ -241,7 +241,7 @@ def test_stats_in_widget_company_payments_for_30_days():
 @allure.label('layer', 'web')
 def test_stats_in_widget_decline_rate():
     user = User(
-        id=0,
+        id=2,
         name=os.getenv('CUSTOMER_NAME'),
         email=os.getenv('CUSTOMER_EMAIL'),
         password=os.getenv('CUSTOMER_PASSWORD')
